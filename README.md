@@ -8,6 +8,11 @@ than I would like.
 is for.
 
 
+## Windows Setup
+
+You can found the instructions for [Windows here](WindowsPostInstall.md)
+
+
 ## License
 Copyright (c) 2022 Bruno Alves (brunoalves.app)
 
