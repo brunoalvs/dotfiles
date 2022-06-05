@@ -35,6 +35,19 @@ winget is not installed.
 
 You can get the App Installer from the [Microsoft Store](https://www.microsoft.com/p/app-installer/9nblggh4nns1#activetab=pivot:overviewtab).
 
+## Scoop
+
+[Scoop](https://scoop.sh/) is another command-line for windows, but it's more popular than winget and it provides a larger app library. If you want you can using both.
+
+To install you'll need open your PowerShell terminal and run:
+
+```bash
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-WebRequest get.scoop.sh | Invoke-Expression
+```
+
+> If you need advanced installation options, check out the [Installer's Readme](https://github.com/ScoopInstaller/Install#readme)
+
 ## Windows Terminal
 
 This will be quick, you just need go to [Microsoft Store](https://aka.ms/terminal) and install it. And if you need some support or more info check [Microsoft Docs](https://docs.microsoft.com/en-us/windows/terminal/install).
@@ -71,20 +84,6 @@ Now, you can install PowerShell or PowerShell Preview using the `id` parameter.
 ```bash
 winget install Microsoft.PowerShell
 ```
-
-
-## Scoop
-
-[Scoop](https://scoop.sh/) is another command-line for windows, but it's more popular than winget and this provides a larger app library. Nothing prevents you from using both.
-
-To install you'll need open your PowerShell terminal and run:
-
-```bash
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-WebRequest get.scoop.sh | Invoke-Expression
-```
-
-> If you need advanced installation options, check out the [Installer's Readme](https://github.com/ScoopInstaller/Install#readme)
 
 ## Git
 
