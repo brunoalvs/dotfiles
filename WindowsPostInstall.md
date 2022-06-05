@@ -87,8 +87,7 @@ winget install Microsoft.PowerShell
 
 ## Git
 
-Nowadays it is much easier to install Git on Windows than it once was, and it's even more using scoop.
-You just need run in your terminal the command `scoop install git` and now enjoy.
+You just need run in your terminal the command `scoop install git`.
 
 ## Visual Studio
 
