@@ -88,7 +88,9 @@ winget install Microsoft.PowerShell
 
 ## Git
 
-You just need run in your terminal the command `scoop install git`.
+You just need run in your terminal the command `scoop install git`. After
+install you can
+use `git flow` in your terminal to.
 
 ## Visual Studio
 
