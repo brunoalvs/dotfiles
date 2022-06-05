@@ -95,12 +95,12 @@ install you can also use `git flow` in your terminal.
 
 ## Visual Studio
 
-Probably the most popular source code editor in these days, you can also use scoop to install it running the follow command:
+Probably the most popular source code editor in these days, you can also use `scoop` to install it running the follow command:
 
 ```bash
 scoop install vscode
 ```
-> Maybe you need run `scoop bucket add extras` too.
+> Maybe you'll also need to run `scoop bucket add extras`.
 
 ## NeoVim
 
@@ -113,7 +113,10 @@ From now on, I'll use only nvim, but you can use another code editor if your rat
 
 ## Config your Powershell
 
-First all we need install [Oh-My-Posh](https://ohmyposh.dev), a prompt theme engine. We'll install using scoop:
+First of all we need to install [Oh-My-Posh](https://ohmyposh.dev), a prompt theme engine.
+
+We'll install it using scoop:
+
 ```bash
 scoop install oh-my-posh
 ```
