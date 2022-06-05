@@ -9,8 +9,8 @@
 - [x] Git for Windows
 - [x] Visual Studio Code
 - [ ] NeoVim
-- [ ] NerdFonts - Powerline-patched fonts
 - [ ] Oh My Posh - Prompt theme engine
+- [ ] NerdFonts - Powerline-patched fonts
 - [ ] Terminal-Icons - File and folder icons in your terminal
 - [ ] PSReadLine - Cmdlets for customizing the editing environment, used for autocompletion
 - [ ] z - Directory jumper
@@ -174,4 +174,3 @@ Then add the folloing line in your `user_profile.ps1`:
 Import-Module -Name Terminal-Icons
 ```
 
-> Follow instructions in this [article](https://gist.github.com/brunoalvs/)Desde o começo dessa semana, estou
