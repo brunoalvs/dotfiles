@@ -4,7 +4,7 @@
 Bruno's dotfiles
 ----
 
-Here are have some dotfiles, used when I need config my Windows config again.. This happens more
+Here you'll find some dotfiles, used when I need config my Windows again... This happens more
 than I would like.
 
 > **Warning:** Don't blindly use my settings unless you know for what each thing
@@ -13,7 +13,7 @@ is for.
 
 ## Windows Setup
 
-You can found the instructions for [Windows here](WindowsPostInstall.md)
+You can found the [instructions for Windows here](WindowsPostInstall.md)
 
 
 ## License

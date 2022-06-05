@@ -7,13 +7,13 @@
 - [x] Scoop - A command line installer
 - [x] Git for Windows
 - [x] Visual Studio Code
-- [] NeoVim
-- [] NerdFonts - Powerline-patched fonts
-- [] Oh My Posh - Prompt theme engine
-- [] Terminal-Icons - File and folder icons in your terminal
-- [] PSReadLine - Cmdlets for customizing the editing environment, used for autocompletion
-- [] z - Directory jumper
-- [] Fzf, PSFzf - Fuzzy finder
+- [ ] NeoVim
+- [ ] NerdFonts - Powerline-patched fonts
+- [ ] Oh My Posh - Prompt theme engine
+- [ ] Terminal-Icons - File and folder icons in your terminal
+- [ ] PSReadLine - Cmdlets for customizing the editing environment, used for autocompletion
+- [ ] z - Directory jumper
+- [ ] Fzf, PSFzf - Fuzzy finder
 
 ## Directory structure
 
@@ -22,6 +22,18 @@
     	├── user_profile.ps1        	# Config file (like .bashrc or .zshrc on linux)
     	├── my.omp.json                 # A custom theme for Oh My Posh
     	└── scripts.psm1		# Scripts to add some 'features' to terminal
+
+## Winget
+
+Windows Package Manager or **winget** command-line tool enables users to
+discover, install, upgrade, remove and configure aplications on Windows 10 and
+Windows 11 computers.
+
+Winget is bundled with Windows 11 and modern versions of Windows 10 by default
+as the App Installer. But, if you are running an earlier version of Windows, the
+winget is not installed.
+
+You can get the App Installer from the [Microsoft Store](https://www.microsoft.com/p/app-installer/9nblggh4nns1#activetab=pivot:overviewtab).
 
 ## Windows Terminal
 
