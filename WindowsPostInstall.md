@@ -37,22 +37,21 @@ You can get the App Installer from the [Microsoft Store](https://www.microsoft.c
 
 ## Windows Terminal
 
-This will be quick, just you need go to [Microsoft Store](https://aka.ms/terminal) and install it. And if you need some support or more info check [Microsoft Docs](https://docs.microsoft.com/en-us/windows/terminal/install);
+This will be quick, you just need go to [Microsoft Store](https://aka.ms/terminal) and install it. And if you need some support or more info check [Microsoft Docs](https://docs.microsoft.com/en-us/windows/terminal/install).
 
-If you have Windows 11 or a modern version of Windows 10, you can use `winget` the command-line tool of Windows, so you just need open your terminal (prompt command in this case) and run the follow command:
+If you have Windows 11 or a modern version of Windows 10, you can use `winget` the command-line tool of Windows, so you just need to open your terminal (or prompt command in this case) and run the following command:
 
 ```bash
 winget install Microsoft.WindowsTerminal
 ```
 
-> Note: See the [winget documentations](https://docs.microsoft.com/en-us/windows/package-manager/winget) for a list of system requirements and install instructions.
+> Note: See the [winget documentations](https://docs.microsoft.com/en-us/windows/package-manager/winget) for a list of system requirements and installing instructions.
 
 
-## PowerShell 7+
+## PowerShell
 
-We'll need to install PowerShell 7+ in order to use some tools going forward. So
-let's install the latest version of PowerShell using `winget`, first search for
-the latest version of PowerShell:
+In order to use some tools, you'll need to search and install the latest version of PowerShell, using the following command:
+
 
 ```Powershell
 winget search Microsoft.PowerShell
