@@ -4,7 +4,7 @@
 Bruno's dotfiles
 ----
 
-Here you'll find some dotfiles, used when I need config my Windows again... This happens more
+Here you'll find some dotfiles, used when I need to config my Windows again... This happens more
 than I would like.
 
 > **Warning:** Don't blindly use my settings unless you know for what each thing
