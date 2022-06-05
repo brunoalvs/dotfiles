@@ -13,7 +13,7 @@ is for.
 
 ## Windows Setup
 
-You can found the [instructions for Windows here](WindowsPostInstall.md)
+You can find the instructions for Windows [here](WindowsPostInstall.md)
 
 
 ## License
