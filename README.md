@@ -1,3 +1,6 @@
+![terminal screenshot](./images/screenshot.png)
+
+
 Bruno's dotfiles
 ----
 
