@@ -2,9 +2,10 @@
 
 ## Features
 
+- [x] Winget
+- [x] Scoop - A command line installer
 - [x] Windows Terminal
 - [x] PowerShell 7
-- [x] Scoop - A command line installer
 - [x] Git for Windows
 - [x] Visual Studio Code
 - [ ] NeoVim
