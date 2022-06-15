@@ -3,9 +3,10 @@
 ## Features
 
 - [x] Winget
-- [x] Scoop - A command line installer
 - [x] Windows Terminal
-- [x] PowerShell 7
+- [x] Latest PowerShell
+- [x] Scoop - A command line installer
+- [x] Sudo
 - [x] Git for Windows
 - [x] Visual Studio Code
 - [ ] NeoVim
@@ -24,6 +25,7 @@
     	├── my.omp.json                 # A custom theme for Oh My Posh
     	└── scripts.psm1		# Scripts to add some 'features' to terminal
 
+
 ## Winget
 
 Windows Package Manager or **winget** command-line tool enables users to
@@ -36,18 +38,6 @@ winget is not installed.
 
 You can get the App Installer from the [Microsoft Store](https://www.microsoft.com/p/app-installer/9nblggh4nns1#activetab=pivot:overviewtab).
 
-## Scoop
-
-[Scoop](https://scoop.sh/) is another command-line for windows, but it's more popular than winget and it provides a larger app library. If you want you can using both.
-
-To install you'll need open your PowerShell terminal and run:
-
-```bash
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-WebRequest get.scoop.sh | Invoke-Expression
-```
-
-> If you need advanced installation options, check out the [Installer's Readme](https://github.com/ScoopInstaller/Install#readme)
 
 ## Windows Terminal
 
@@ -86,6 +76,29 @@ Now, you can install PowerShell or PowerShell Preview using the `id` parameter.
 winget install Microsoft.PowerShell
 ```
 
+
+## Scoop
+
+[Scoop](https://scoop.sh/) is another command-line for windows, but it's more popular than winget and it provides a larger app library. If you want you can using both.
+
+To install you'll need open your PowerShell terminal and run:
+
+```bash
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-WebRequest get.scoop.sh | Invoke-Expression
+```
+
+Great, now you can use Scoop.
+
+> If you need advanced installation options, check out the [Installer's Readme](https://github.com/ScoopInstaller/Install#readme)
+
+## Sudo
+
+Yes, you can use `sudo` command in your Windows. You just need install using scoop:
+```bash
+scoop install sudo
+```
+
 ## Git
 
 You just need to run in your terminal the command `scoop install git`. After
@@ -93,7 +106,11 @@ install you can also use `git flow` in your terminal.
 
 > If you want more information about git flow, you can check [here](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
-## Visual Studio
+## SSH <!-- TODO: Add instructions to generate ssh keys, and link to github docs about it -->
+
+
+## Visual Studio 
+<!-- TODO: Rewrite this section, actually you'll really need run `scoop bucket add extras` before try install vscode -->
 
 Probably the most popular source code editor in these days, you can also use `scoop` to install it running the follow command:
 
@@ -102,14 +119,63 @@ scoop install vscode
 ```
 > Maybe you'll also need to run `scoop bucket add extras`.
 
-## NeoVim
+## Node
 
-Just run
+
+```bash
+scoop install nvm
+```
+
+
+
+```bash
+nvm install lts
+```
+
+
+```bash
+nvm use lts
+```
+
+
+<!-- 
+Using `nvm` (Node Version Manager) makes it easier to install and manage multiple versions of Node.js on a single local environment. If you only need a single version of Node.js right now, I recommend you to using nvm because it allows you to switch between different versions of Node (depending on the requirements of your project) with minimal hassle.
+
+
+
+To install nvm, you can follow guide available on [nvm github repository](https://github.com/nvm-sh/nvm). But here, we'll install using scoop: -->
+
+<!-- > Note: Nvm is not recommended to use in production enviroment, in this case you can use a S.O package to install a Node.js version that you need. -->
+
+<!-- > Note: You shouldn't use NVM in production enviroment, in this case you can use a S.O package to install a Node.js version that you need. -->
+
+## NeoVim
+<!-- TODO: Add a link to neovim setup instructions -->
+
+```bash
+scoop bucket add extras
+scoop install vcredist2022
+```
+
+Now you can uninstall `vcredist2022`, just run:
+```bash
+scoop uninstall vcredist2022
+```
+
+Now just run
 ```bash
 scoop install neovim gcc
 ```
 
+And that's it, to use you just need run in your terminal `nvim`. 
+
 From now on, I'll use only nvim, but you can use another code editor if your rather.
+
+> If you need advance instructions or more details, you can visit [NeoVim Installing instructions](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+
+## Vim Plug
+
+In order to use my `vim dotfiles`, you'll need install `Vim-Plug` in to NeoVim.
 
 ## Config your Powershell
 
@@ -174,3 +240,5 @@ Then add the folloing line in your `user_profile.ps1`:
 Import-Module -Name Terminal-Icons
 ```
 
+<!-- TODO: Update instructions to setup user_profile.ps1 -->
+<!-- TODO: Add instructions to fix and setup user_profile.ps1 -->
