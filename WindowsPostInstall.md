@@ -108,8 +108,17 @@ install you can also use `git flow` in your terminal.
 
 ## SSH <!-- TODO: Add instructions to generate ssh keys, and link to github docs about it -->
 
+To generate a new SSH key, you can run in your terminal the text below.
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
 
-## Visual Studio 
+This creates a new SSH key, using the provided email as a label.
+
+> To see more about SSH, you can check this article from [Github About SSH key
+generation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more details
+
+## Visual Studio
 <!-- TODO: Rewrite this section, actually you'll really need run `scoop bucket add extras` before try install vscode -->
 
 Probably the most popular source code editor in these days, you can also use `scoop` to install it running the follow command:
@@ -138,7 +147,7 @@ nvm use lts
 ```
 
 
-<!-- 
+<!--
 Using `nvm` (Node Version Manager) makes it easier to install and manage multiple versions of Node.js on a single local environment. If you only need a single version of Node.js right now, I recommend you to using nvm because it allows you to switch between different versions of Node (depending on the requirements of your project) with minimal hassle.
 
 
@@ -167,7 +176,7 @@ Now just run
 scoop install neovim gcc
 ```
 
-And that's it, to use you just need run in your terminal `nvim`. 
+And that's it, to use you just need run in your terminal `nvim`.
 
 From now on, I'll use only nvim, but you can use another code editor if your rather.
 
