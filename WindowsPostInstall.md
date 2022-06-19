@@ -8,8 +8,8 @@
 - [x] Scoop - A command line installer
 - [x] Sudo
 - [x] Git for Windows
-- [x] Visual Studio Code
 - [ ] NeoVim
+- [x] Visual Studio Code
 - [ ] Oh My Posh - Prompt theme engine
 - [ ] NerdFonts - Powerline-patched fonts
 - [ ] Terminal-Icons - File and folder icons in your terminal
@@ -118,7 +118,35 @@ This creates a new SSH key, using the provided email as a label.
 > To see more about SSH, you can check this article from [Github About SSH key
 generation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more details
 
-## Visual Studio
+## NeoVim
+
+Let's install neovim using `Scoop`, just run
+```bash
+scoop bucket add extras
+scoop install vcredist2022
+```
+
+Now you can uninstall `vcredist2022`, just run:
+```bash
+scoop uninstall vcredist2022
+```
+
+Now just run
+```bash
+scoop install neovim gcc
+```
+
+And that's it, to use you just need run in your terminal `nvim`.
+
+From now on, I'll use only nvim, but you can use another code editor if your rather.
+
+> If you need advance instructions or more details, you can visit [NeoVim Installing instructions](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+
+### Vim Plug
+
+In order to use my `vim dotfiles`, you'll need install `Vim-Plug` in to NeoVim.
+
+## Visual Studio Code aka VSCode
 <!-- TODO: Rewrite this section, actually you'll really need run `scoop bucket add extras` before try install vscode -->
 
 Probably the most popular source code editor in these days, you can also use `scoop` to install it running the follow command:
@@ -158,33 +186,7 @@ To install nvm, you can follow guide available on [nvm github repository](https:
 
 <!-- > Note: You shouldn't use NVM in production enviroment, in this case you can use a S.O package to install a Node.js version that you need. -->
 
-## NeoVim
-<!-- TODO: Add a link to neovim setup instructions -->
 
-```bash
-scoop bucket add extras
-scoop install vcredist2022
-```
-
-Now you can uninstall `vcredist2022`, just run:
-```bash
-scoop uninstall vcredist2022
-```
-
-Now just run
-```bash
-scoop install neovim gcc
-```
-
-And that's it, to use you just need run in your terminal `nvim`.
-
-From now on, I'll use only nvim, but you can use another code editor if your rather.
-
-> If you need advance instructions or more details, you can visit [NeoVim Installing instructions](https://github.com/neovim/neovim/wiki/Installing-Neovim)
-
-## Vim Plug
-
-In order to use my `vim dotfiles`, you'll need install `Vim-Plug` in to NeoVim.
 
 ## Config your Powershell
 

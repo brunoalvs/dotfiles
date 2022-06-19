@@ -10,6 +10,15 @@ than I would like.
 > **Warning:** Don't blindly use my settings unless you know for what each thing
 is for.
 
+## Directory structure
+
+    .$env:USERPROFILE\
+    └── .config\
+        └── powershell
+            ├── user_profile.ps1        	# Config file (like .bashrc or .zshrc on linux)
+            └── scripts.psm1		        # Scripts to add some 'features' to terminal
+    └── AppData\Local\nvim
+    	└── init.vim                        # NeoVim config 
 
 ## Windows Setup
 
