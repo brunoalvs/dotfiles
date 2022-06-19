@@ -26,4 +26,3 @@ Use scoop to install oh-my-posh, using command below:
 scoop install oh-my-posh
 ```
 
-Now, use
