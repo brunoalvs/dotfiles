@@ -1,8 +1,13 @@
 # PowerShell Setup
 
 I'll consider that you already install `scoop` and using it to install `git`. Ensure that you already have them installed, before proceeding.
+> Check [Windows Post-Install Instructions](WindowsPostInstall.md) to get more details.
 
-> Check [Windows Post-Install Instructions](WindowsPostInstall.md) to get more details. 
+
+## Prerequisites
+- [Scoop](https://scoop.sh)
+- [Nerd Font](https://nerdfonts.com/font-downloads)
+
 
 ## Directory structure
 
@@ -13,16 +18,20 @@ I'll consider that you already install `scoop` and using it to install `git`. En
             └── scripts.psm1		        # Scripts to add some 'features' to terminal
         ...
 
-## Requirements
-- Scoop
-- Git
+> If you need any help with font installations, please check [Nerd Fonts ReadMe
+Github](https://github.com/ryanoasis/nerd-fonts#option-1-download-and-install-manually)
+
 
 ## Oh-My-Posh
 
 `Oh-My-Posh` provides theme features and capabilities for a experience with Git status color-coding and a fully customized command prompt.
 
-Use scoop to install oh-my-posh, using command below:
+You can use scoop to install oh-my-posh, using command below:
 ```bash
 scoop install oh-my-posh
 ```
+
+This will install:
+    - `oh-my-posh.exe`: Windows executable
+    - `themes`: The latest [Oh My Posh themes](https://ohmyposh.dev/docs/themes)
 

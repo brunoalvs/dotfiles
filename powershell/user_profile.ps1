@@ -16,7 +16,7 @@ Import-Module PSFzf
 Set-PSFzfOption -PSReadLineChordProvidor 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
 
 # My Custom Scripts
-Import-Module "C:\Users\hello\.config\powershell\scripts.psm1"
+Import-Module ".$env:USERPROFILE\.config\powershell\scripts.psm1"
 
 # Alias
 Set-Alias v nvim
