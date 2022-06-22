@@ -1,7 +1,7 @@
 function copyPowerShellConfigFiles () {
-    Write-Message: "Moving Powershell config files..."
+    Write-Information "Moving Powershell config files..."
     Copy-Item ".\powershell" -Destination "$env:USERPROFILE\.config\powershell" -Recurse
-    Write-Message: "Powershell config moved! Please, restart your terminal."
+    Write-Information "Powershell config moved! Please, restart your terminal."
 }
 
 function createProfile () {
@@ -10,7 +10,9 @@ function createProfile () {
 
 # Check if $PROFILE already exists
 if (-not (test-path $profile)) {
-    Write-Warning: "$PROFILE does not exist, let me create for you..."
-    
+    Write-Information -MessageData "$PROFILE does not exist, let me create for you..." -InformationAction Continue
+
     createProfile
+} else {
+    Write-Warning "$PROFILE already exists!"
 }
