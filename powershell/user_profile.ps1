@@ -2,7 +2,22 @@
 oh-my-posh init pwsh --config "$(scoop prefix oh-my-posh)\themes\spaceship.omp.json" | Invoke-Expression
 
 # Icons
-Import-Module -Name Terminal-Icons
+if (!(Get-Module -Name Terminal-Icons)) {
+	Install-Module -Name Terminal-Icons
+	Import-Module -Name Terminal-Icons
+} else {
+	Import-Module -Name Terminal-Icons
+}
+
+# Fzf
+if (!(Get-Module -Name PSFzf)) {
+	Install-Module -Name PSFzf
+	Import-Module -Name PSFzf
+} else {
+	Import-Module -Name PSFzf
+}
+
+Set-PSFzfOption -PSReadLineChordProvidor 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
 
 # PSReadLine
 Set-PSReadLineOption -EditMode Emacs
@@ -11,12 +26,8 @@ Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 Set-PSReadLineOption -PredictionSource History
 #Set-PSReadLineOption -PredictionViewStyle ListView
 
-# Fzf
-Import-Module PSFzf
-Set-PSFzfOption -PSReadLineChordProvidor 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
-
 # My Custom Scripts
-Import-Module ".$env:USERPROFILE\.config\powershell\scripts.psm1"
+Import-Module "$env:USERPROFILE\.config\powershell\scripts.psm1"
 
 # Alias
 Set-Alias v nvim
