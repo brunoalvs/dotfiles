@@ -9,7 +9,7 @@ function createProfile () {
 }
 
 function InstallDependenciesWithScoop () {
-    Write-Host "Installing dependencies with Scoop..."
+    Write-Host "Installing dependencies using Scoop..."
     scoop install git
     scoop install sudo
     scoop install oh-my-posh
@@ -42,7 +42,21 @@ if (-not (test-path $profile)) {
     Write-Host "Dependencies Installed Successfully! Please restart your Terminal"
 
 } else {
-    Write-Warning "$PROFILE already exists!"
+    Write-Warning "`$PROFILE` already exists!"
+
+    do {
+        $response = Read-Host -Prompt "Do you want to restore powershell script files?"
+        if ($response -eq 'y') {
+            copyPowerShellConfigFiles
+        }
+    } until ($response -eq 'n')
+
+    do {
+        $response = Read-Host -Prompt "Do you want to run functions to Install/Update Dependencies with Scoop?"
+        if ($response -eq 'y') {
+            InstallDependenciesWithScoop
+        }
+    } until ($response -eq 'n')
+
+    Write-Host "Done!"
 }
-
-
