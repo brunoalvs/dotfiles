@@ -26,7 +26,7 @@ Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 Set-PSReadLineOption -PredictionSource History
 #Set-PSReadLineOption -PredictionViewStyle ListView
 
-# My Custom Scripts
+# My Custom Scripts (i.e. touch, which, etc.)
 Import-Module "$env:USERPROFILE\.config\powershell\scripts.psm1"
 
 # Alias
@@ -41,9 +41,3 @@ Set-Alias less 'C:\Users\hello\scoop\apps\git\current\usr\bin\less.exe'
 Set-Alias cat bat
 Set-Alias ps procs
 Set-Alias open explorer
-
-# Utilities
-function which ($command) {
-	Get-Command -Name $command -ErrorAction SilentlyContinue |
-	Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
-}
