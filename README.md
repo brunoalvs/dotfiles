@@ -1,3 +1,6 @@
+> **WARNING:** This repository was created for personal use only, if you want
+> use any script here it is your own risk
+
 ![terminal screenshot](./images/screenshot.png)
 
 
@@ -18,7 +21,7 @@ is for.
             ├── user_profile.ps1        	# Config file (like .bashrc or .zshrc on linux)
             └── scripts.psm1		        # Scripts to add some 'features' to terminal
     └── AppData\Local\nvim
-    	└── init.vim                        # NeoVim config 
+    	└── init.vim                        # NeoVim config
 
 ## Windows Setup
 
