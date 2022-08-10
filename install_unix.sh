@@ -6,7 +6,7 @@ function prompt_install_homebrew() {
   read -r answer
   if [[ $answer =~ ^(yes|y|sim)$ ]]; then
     echo "Installing homebrew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   else
     echo "Skipping homebrew installation..."
   fi
