@@ -25,7 +25,6 @@
     	├── my.omp.json                 # A custom theme for Oh My Posh
     	└── scripts.psm1		# Scripts to add some 'features' to terminal
 
-
 ## Winget
 
 Windows Package Manager or **winget** command-line tool enables users to
@@ -37,7 +36,6 @@ as the App Installer. But, if you are running an earlier version of Windows, the
 winget is not installed.
 
 You can get the App Installer from the [Microsoft Store](https://www.microsoft.com/p/app-installer/9nblggh4nns1#activetab=pivot:overviewtab).
-
 
 ## Windows Terminal
 
@@ -51,11 +49,9 @@ winget install Microsoft.WindowsTerminal
 
 > Note: See the [winget documentations](https://docs.microsoft.com/en-us/windows/package-manager/winget) for a list of system requirements and installing instructions.
 
-
 ## PowerShell
 
 In order to use some tools, you'll need to search and install the latest version of PowerShell, using the following command:
-
 
 ```Powershell
 winget search Microsoft.PowerShell
@@ -76,7 +72,6 @@ Now, you can install PowerShell or PowerShell Preview using the `id` parameter.
 winget install Microsoft.PowerShell
 ```
 
-
 ## Scoop
 
 [Scoop](https://scoop.sh/) is another command-line for windows, but it's more popular than winget and it provides a larger app library. If you want you can using both.
@@ -95,6 +90,7 @@ Great, now you can use Scoop.
 ## Sudo
 
 Yes, you can use `sudo` command in your Windows. You just need install using scoop:
+
 ```bash
 scoop install sudo
 ```
@@ -109,6 +105,7 @@ install you can also use `git flow` in your terminal.
 ## SSH <!-- TODO: Add instructions to generate ssh keys, and link to github docs about it -->
 
 To generate a new SSH key, you can run in your terminal the text below.
+
 ```bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
@@ -116,22 +113,25 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 This creates a new SSH key, using the provided email as a label.
 
 > To see more about SSH, you can check this article from [Github About SSH key
-generation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more details
+> generation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more details
 
 ## NeoVim
 
 Let's install neovim using `Scoop`, just run
+
 ```bash
 scoop bucket add extras
 scoop install vcredist2022
 ```
 
 Now you can uninstall `vcredist2022`, just run:
+
 ```bash
 scoop uninstall vcredist2022
 ```
 
 Now just run
+
 ```bash
 scoop install neovim gcc
 ```
@@ -147,6 +147,7 @@ From now on, I'll use only nvim, but you can use another code editor if your rat
 In order to use my `vim dotfiles`, you'll need install `Vim-Plug` in to NeoVim.
 
 ## Visual Studio Code aka VSCode
+
 <!-- TODO: Rewrite this section, actually you'll really need run `scoop bucket add extras` before try install vscode -->
 
 Probably the most popular source code editor in these days, you can also use `scoop` to install it running the follow command:
@@ -154,26 +155,22 @@ Probably the most popular source code editor in these days, you can also use `sc
 ```bash
 scoop install vscode
 ```
+
 > Maybe you'll also need to run `scoop bucket add extras`.
 
 ## Node
-
 
 ```bash
 scoop install nvm
 ```
 
-
-
 ```bash
 nvm install lts
 ```
 
-
 ```bash
 nvm use lts
 ```
-
 
 <!--
 Using `nvm` (Node Version Manager) makes it easier to install and manage multiple versions of Node.js on a single local environment. If you only need a single version of Node.js right now, I recommend you to using nvm because it allows you to switch between different versions of Node (depending on the requirements of your project) with minimal hassle.
@@ -185,8 +182,6 @@ To install nvm, you can follow guide available on [nvm github repository](https:
 <!-- > Note: Nvm is not recommended to use in production enviroment, in this case you can use a S.O package to install a Node.js version that you need. -->
 
 <!-- > Note: You shouldn't use NVM in production enviroment, in this case you can use a S.O package to install a Node.js version that you need. -->
-
-
 
 ## Config your Powershell
 
@@ -212,34 +207,39 @@ nvim ~/.config/powershell/user_profile.ps1
 ```
 
 Case you prefer use vscode, run:
+
 ```bash
 code ~/.config/powershell/user_profile.ps1
 ```
 
 Edit your PowerShell profile script (`$PROFILE`):
+
 ```powershell
 nvim $PROFILE
 ```
 
 Then add the following line
+
 ```powershell
 . $env:USERPROFILE\.config\powershell\user_profile.ps1
 ```
 
 Restart your terminal, then open your `user_profile.ps1` with your editor and add the line:
+
 ```bash
 oh-my-posh init pwsh --config "$(scoop prefix oh-my-posh)\themes\spaceship.omp.json" | Invoke-Expression
 ```
 
 Save and run in your terminal `$PROFILE` command, to reload your terminal with oh-my-posh using `spaceship` theme.
+
 ```bash
 $PROFILE
 ```
 
 > If you wanna see available themes to oh-my-posh, you can run `Get-PoshThemes` and see a list of themes. To change it, you just need change in your `user_profile.ps1` file. See [oh-my-posh docs](https://ohmyposh.dev/docs/installation/customize) to more info.
 
-
 ### Add NerdFonts and Terminal Icons
+
 Install NerdFonts in your Windows, apply on your terminal config and install `Terminal-Icons` on your Powershell running:
 
 ```bash
@@ -247,6 +247,7 @@ Install-Module -Name Terminal-Icons -Repository PSGallery -Force
 ```
 
 Then add the folloing line in your `user_profile.ps1`:
+
 ```bash
 Import-Module -Name Terminal-Icons
 ```
