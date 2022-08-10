@@ -17,33 +17,42 @@ function prompt_install_iterm2() {
   read -r answer
   if [[ $answer =~ ^(yes|y|sim)$ ]]; then
     echo "Installing iterm2..."
-    brew cask install iterm2
+    brew install --cask iterm2
   else
     echo "Skipping iterm2 installation..."
   fi
 }
 
+function prompt_install_nvm() {
+  echo "Do you want to install nvm? (yes/no)"
+  read -r answer
+
+  if [[ $answer =~ ^(yes|y|sim)$ ]]; then
+    echo "Installing nvm..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+    then
+      echo "add nvm to .zshrc"
+      echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.zshrc
+      echo "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"" >> ~/.zshrc
+      echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"" >> ~/.zshrc
+      source ~/.zshrc
+    
+      echo "nvm installed"
+  else
+    echo "Skipping..."
+  fi
+
+}
+
+
 prompt_install_homebrew
 
-# prompt_install_iterm2
-
-# check if its running on mac
 if [[ $(uname) == "Darwin" ]]; then
   echo "Running on mac"
   # install homebrew
-  if ! command -v brew >/dev/null; then
-    echo "Installing homebrew..."
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  else
-    echo "Homebrew already installed"
-  fi
-  # install iterm2
-  if ! command -v iterm2 >/dev/null; then
-    echo "Installing iterm2..."
-    brew cask install iterm2
-  else
-    echo "iterm2 already installed"
-  fi
+  prompt_install_iterm2
+  
 else
   echo "Not running on mac"
 fi
