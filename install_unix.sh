@@ -1,4 +1,4 @@
-#!/bin/sh
+#!
 echo "Hi"
 
 function prompt_install_homebrew() {
@@ -27,3 +27,49 @@ prompt_install_homebrew
 prompt_install_iterm2
 
 echo "See you soon!"
+
+
+# abort() {
+#   printf "%s\n" "$@" >&2
+#   exit 1
+# }
+
+
+
+# install_nvm() {
+#   echo "Checking nvm..."
+#   if [[ $(command -v nvm) == "" ]]; then
+#     echo "nvm is not installed. Would you like to install it? (y/n)"
+#     read answer
+#     if [[ $answer == "y" ]]; then
+#       curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+#     else
+#       echo "Skipping..."
+#     fi
+#   else
+#     echo "nvm is already installed. Skipping..."
+#   fi
+# }
+
+# install_apps_with_homebrew() {
+#   # Install apps with Homebrew
+#   # Show percentage of progress in the terminal
+#   echo "Installing apps with Homebrew..."
+#   brew install git
+#   brew install neovim
+#   brew install bat
+#   brew install zsh
+
+#   brew install --cask insomnia
+#   brew install --cask chromium
+#   brew install --cask visual-studio-code
+
+#   # Install apps with Homebrew Cask
+#   # Show percentage of progress in the terminal
+#   echo "Installing apps with Homebrew Cask..."
+#   brew cask install iterm2
+#   brew cask install google-chrome
+#   brew cask install firefox
+#   brew cask install visual-studio-code
+#   echo "Installing apps with Homebrew Cask... Done!"
+# }
