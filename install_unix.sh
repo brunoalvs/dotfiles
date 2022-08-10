@@ -24,7 +24,30 @@ function prompt_install_iterm2() {
 }
 
 prompt_install_homebrew
-prompt_install_iterm2
+
+# prompt_install_iterm2
+
+# check if its running on mac
+if [[ $(uname) == "Darwin" ]]; then
+  echo "Running on mac"
+  # install homebrew
+  if ! command -v brew >/dev/null; then
+    echo "Installing homebrew..."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+    echo "Homebrew already installed"
+  fi
+  # install iterm2
+  if ! command -v iterm2 >/dev/null; then
+    echo "Installing iterm2..."
+    brew cask install iterm2
+  else
+    echo "iterm2 already installed"
+  fi
+else
+  echo "Not running on mac"
+fi
+
 
 echo "See you soon!"
 
