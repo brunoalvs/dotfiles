@@ -31,18 +31,9 @@ function prompt_install_nvm() {
     echo "Installing nvm..."
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
-    then
-      echo "add nvm to .zshrc"
-      echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.zshrc
-      echo "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"" >> ~/.zshrc
-      echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"" >> ~/.zshrc
-      source ~/.zshrc
-    
-      echo "nvm installed"
   else
     echo "Skipping..."
   fi
-
 }
 
 
