@@ -11,8 +11,7 @@
 
 You can install all the packages automatically using the file `install.sh` in the root of the repository.
 
-First things first, we can need change the permissions of `./install.sh` script running the follow command:
-
+In order for the script to be directly callable, you have to set the executable flag, like this:
 ```bash
 chmod +x ./install.sh
 ```
