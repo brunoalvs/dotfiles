@@ -1,34 +1,22 @@
 # 1. Check if powershell is installed with the latest version
 function handlePowerShell () {
-    # Check if powershell is installed with the latest version using winget
-    $powershellVersion = winget show Microsoft.PowerShell | Select-String -Pattern "Version" | Select-Object -Last 1 | Select-Object -ExpandProperty Line
-    $powershellVersion = $powershellVersion.Split(":")[1].Trim()
-    $powershellVersion = $powershellVersion.Split(".")[0..1] -join "."
-    $powershellVersion = [version]$powershellVersion
-
-    $latestPowershellVersion = winget show Microsoft.PowerShell --versions | Select-String -Pattern "Version" | Select-Object -Last 1 | Select-Object -ExpandProperty Line
-    $latestPowershellVersion = $latestPowershellVersion.Split(":")[1].Trim()
-    $latestPowershellVersion = $latestPowershellVersion.Split(".")[0..1] -join "."
-    $latestPowershellVersion = [version]$latestPowershellVersion
-
-
-    if ($powershellVersion -eq $latestPowershellVersion) {
-        Write-Host "Powershell is installed with the latest version."
-    } else {
-        Write-Host "Powershell is not installed with the latest version."
+    # Prompt user to install Microsoft PowerShell if it is not installed
+    if (-not (Get-Command pwsh -ErrorAction SilentlyContinue)) {
+        Write-Host "Microsoft PowerShell is not installed."
         do {
-            $response = Read-Host -Prompt "Do you want to install the latest version of Powershell?"
+            $response = Read-Host -Prompt "Do you want to install Microsoft PowerShell?"
             if ($response -eq 'y') {
-                Write-Host "Installing the latest version of Powershell..."
+                Write-Host "Installing Microsoft PowerShell..."
                 winget install Microsoft.PowerShell
-                Write-Host "Powershell is installed with the latest version."
+                Write-Host "Microsoft PowerShell is installed."
             }
         } until ($response -eq 'n')
+    } else {
+        Write-Host "Microsoft PowerShell is installed. Moving on..."
     }
 }
 
 function InstallWindowsTerminal () {
-
     Write-Host "Installing Windows Terminal..."
     winget install Microsoft.WindowsTerminal
     Write-Host "Windows Terminal is installed."
@@ -71,14 +59,15 @@ function InstallDependenciesWithScoop () {
 
 # 4. Create new profile file
 # https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.1
-function CreateNewProfileFile () {
-    if (-not (Test-Path $PROFILE))
-    {
-        Write-Information "Creating new profile file..."
-    } else {
-        Write-Information "Profile file already exists."
-    }
-}
+# function CreateNewProfileFile () {
+#     if (-not (Test-Path $PROFILE))
+#     {
+#         Write-Information "Creating new profile file..."
+#         Write-Information ". $env:UserPROFILE\.config\powershell\user_profile.ps1" 6> $PROFILE
+#     } else {
+#         Write-Information "Profile file already exists."
+#     }
+# }
 
 # 5. Install Modules with PowerShellGet
 # https://docs.microsoft.com/en-us/powershell/scripting/gallery/how-to/working-with-the-gallery?view=powershell-7.1
@@ -98,8 +87,7 @@ function Install () {
     InstallScoop
 
     InstallDependenciesWithScoop
-    CreateNewProfileFile
-    InstallModulesWithPowerShellGet
+    # CreateNewProfileFile
 
     Copy-Item ".\powershell" -Destination "$env:USERPROFILE\.config\powershell" -Recurse
 
@@ -111,6 +99,7 @@ function Install () {
         Write-Information "Profile file already exists."
     }
     
+    InstallModulesWithPowerShellGet
     Write-Information "Please, restart your terminal."
 }
 
