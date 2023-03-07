@@ -42,17 +42,17 @@ function InstallScoop () {
     $scoopShimPath = "$env:USERPROFILE\scoop\shims\scoop"
 
     if (Test-Path $scoopPath) {
-        Write-Host "Scoop is already installed."
+        Write-Information "Scoop is already installed."
         return
     } else {
-        Write-Host "Scoop is not installed."
+        Write-Information "Scoop is not installed."
         
         do {
             $response = Read-Host -Prompt "Do you want to install Scoop?"
             if ($response -eq 'y') {
-                Write-Host "Installing Scoop..."
+                Write-Information "Installing Scoop..."
                 Invoke-Expression (New-Object System.Net.WebClient).DownloadString($scoopUrl)
-                Write-Host "Scoop is installed."
+                Write-Information "Scoop is installed."
             }
         } until ($response -eq 'n')
     }
@@ -74,9 +74,9 @@ function InstallDependenciesWithScoop () {
 function CreateNewProfileFile () {
     if (-not (Test-Path $PROFILE))
     {
-        Write-Host "Creating new profile file..."
+        Write-Information "Creating new profile file..."
     } else {
-        Write-Host "Profile file already exists."
+        Write-Information "Profile file already exists."
     }
 }
 
@@ -84,7 +84,7 @@ function CreateNewProfileFile () {
 # https://docs.microsoft.com/en-us/powershell/scripting/gallery/how-to/working-with-the-gallery?view=powershell-7.1
 
 function InstallModulesWithPowerShellGet () {
-    White-Host "Installing modules with PowerShellGet..."
+    White-Information "Installing modules with PowerShellGet..."
     Install-Module -Name Terminal-Icons
     Install-Module -Name PSFzf
     # Install-Module -Name PSReadLine
@@ -105,13 +105,13 @@ function Install () {
 
     if (-not (Test-Path $env:USERPROFILE\.config\powershell\user_profile.ps1))
     {
-        Write-Host "Creating new profile file..."
+        Write-Information "Creating new profile file..."
         Write-Information ". $env:UserPROFILE\.config\powershell\user_profile.ps1" 6> $PROFILE
     } else {
-        Write-Host "Profile file already exists."
+        Write-Information "Profile file already exists."
     }
     
-    Write-Host "Please, restart your terminal."
+    Write-Information "Please, restart your terminal."
 }
 
 try {
