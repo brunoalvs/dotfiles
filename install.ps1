@@ -10,12 +10,16 @@ function InstallScoop () {
         return
     } else {
         Write-Host "Scoop is not installed."
-        return
+        
+        do {
+            $response = Read-Host -Prompt "Do you want to install Scoop?"
+            if ($response -eq 'y') {
+                Write-Host "Installing Scoop..."
+                Invoke-Expression (New-Object System.Net.WebClient).DownloadString($scoopUrl)
+                Write-Host "Scoop is installed."
+            }
+        } until ($response -eq 'n')
     }
-
-    # Write-Host "Installing Scoop..."
-    # Invoke-Expression (New-Object System.Net.WebClient).DownloadString($scoopUrl)
-    # Write-Host "Scoop is installed."
 }
 
 # 2. Install dependencies with scoop
@@ -48,4 +52,41 @@ function InstallModulesWithPowerShellGet () {
     # Install-Module -Name Terminal-Icons
     # Install-Module -Name PSFzf
     # Install-Module -Name PSReadLine
+}
+
+# 5. Start to run the script
+function Install () {
+    # 1. Install Scoop
+    InstallScoop
+    # 2. If scoop is installed, install dependencies with scoop
+    if (Test-Path $scoopPath) {
+        InstallDependenciesWithScoop
+    }
+    # 3. Create new profile file
+    CreateNewProfileFile
+
+    # 4. Install Modules with PowerShellGet
+    InstallModulesWithPowerShellGet
+
+    # 5. Copy PowerShell config files
+    Copy-Item ".\powershell" -Destination "$env:USERPROFILE\.config\powershell" -Recurse
+
+    # 6. Write to $PROFILE the new profile file path
+    if (-not (Test-Path $env:USERPROFILE\.config\powershell\user_profile.ps1))
+    {
+        Write-Host "Creating new profile file..."
+        Write-Information ". $env:UserPROFILE\.config\powershell\user_profile.ps1" 6> $PROFILE
+    } else {
+        Write-Host "Profile file already exists."
+    }
+    
+    # 7. Restart PowerShell
+    Write-Host "Please, restart your terminal."
+}
+
+# 6. Run the script
+try {
+    Install
+} catch {
+    Write-Error $_
 }
