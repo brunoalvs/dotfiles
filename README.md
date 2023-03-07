@@ -2,8 +2,19 @@
 
 # Bruno's dotfiles
 
-These are config files to set up a system that way I like it.
+These are config files to set up a system that way I like it. It's a work in progress, so it's not perfect yet.
 
-Works very well on Windows 10/11. I'll include Linux setup too in the future, but by now. I can't 
 
-## What's inside
+## Windows Requirements
+
+To install the dotfiles on Windows, you need have the winget installed. Its a package manager for Windows that comes with Windows 10 
+- [winget](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
+
+## Installation
+
+```bash
+git clone
+cd dotfiles
+./install.sh
+```
+

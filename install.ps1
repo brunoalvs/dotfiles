@@ -1,4 +1,40 @@
-# 1. Install Scoop
+# 1. Check if powershell is installed with the latest version
+function handlePowerShell () {
+    # Check if powershell is installed with the latest version using winget
+    $powershellVersion = winget show Microsoft.PowerShell | Select-String -Pattern "Version" | Select-Object -Last 1 | Select-Object -ExpandProperty Line
+    $powershellVersion = $powershellVersion.Split(":")[1].Trim()
+    $powershellVersion = $powershellVersion.Split(".")[0..1] -join "."
+    $powershellVersion = [version]$powershellVersion
+
+    $latestPowershellVersion = winget show Microsoft.PowerShell --versions | Select-String -Pattern "Version" | Select-Object -Last 1 | Select-Object -ExpandProperty Line
+    $latestPowershellVersion = $latestPowershellVersion.Split(":")[1].Trim()
+    $latestPowershellVersion = $latestPowershellVersion.Split(".")[0..1] -join "."
+    $latestPowershellVersion = [version]$latestPowershellVersion
+
+
+    if ($powershellVersion -eq $latestPowershellVersion) {
+        Write-Host "Powershell is installed with the latest version."
+    } else {
+        Write-Host "Powershell is not installed with the latest version."
+        do {
+            $response = Read-Host -Prompt "Do you want to install the latest version of Powershell?"
+            if ($response -eq 'y') {
+                Write-Host "Installing the latest version of Powershell..."
+                winget install Microsoft.PowerShell
+                Write-Host "Powershell is installed with the latest version."
+            }
+        } until ($response -eq 'n')
+    }
+}
+
+function InstallWindowsTerminal () {
+
+    Write-Host "Installing Windows Terminal..."
+    winget install Microsoft.WindowsTerminal
+    Write-Host "Windows Terminal is installed."
+}
+
+# 2. Install Scoop
 # https://scoop.sh/
 function InstallScoop () {
     $scoopUrl = "https://get.scoop.sh"
@@ -22,7 +58,7 @@ function InstallScoop () {
     }
 }
 
-# 2. Install dependencies with scoop
+# 3. Install dependencies with scoop
 function InstallDependenciesWithScoop () {
     scoop install git
     scoop install sudo
@@ -33,7 +69,7 @@ function InstallDependenciesWithScoop () {
     scoop install procs
 }
 
-# 3. Create new profile file
+# 4. Create new profile file
 # https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.1
 function CreateNewProfileFile () {
     if (-not (Test-Path $PROFILE))
@@ -44,34 +80,29 @@ function CreateNewProfileFile () {
     }
 }
 
-# 4. Install Modules with PowerShellGet
+# 5. Install Modules with PowerShellGet
 # https://docs.microsoft.com/en-us/powershell/scripting/gallery/how-to/working-with-the-gallery?view=powershell-7.1
 
 function InstallModulesWithPowerShellGet () {
     White-Host "Installing modules with PowerShellGet..."
-    # Install-Module -Name Terminal-Icons
-    # Install-Module -Name PSFzf
+    Install-Module -Name Terminal-Icons
+    Install-Module -Name PSFzf
     # Install-Module -Name PSReadLine
 }
 
-# 5. Start to run the script
+# 6. Start to run the script
 function Install () {
-    # 1. Install Scoop
-    InstallScoop
-    # 2. If scoop is installed, install dependencies with scoop
-    if (Test-Path $scoopPath) {
-        InstallDependenciesWithScoop
-    }
-    # 3. Create new profile file
-    CreateNewProfileFile
 
-    # 4. Install Modules with PowerShellGet
+    handlePowerShell
+    InstallWindowsTerminal
+    InstallScoop
+
+    InstallDependenciesWithScoop
+    CreateNewProfileFile
     InstallModulesWithPowerShellGet
 
-    # 5. Copy PowerShell config files
     Copy-Item ".\powershell" -Destination "$env:USERPROFILE\.config\powershell" -Recurse
 
-    # 6. Write to $PROFILE the new profile file path
     if (-not (Test-Path $env:USERPROFILE\.config\powershell\user_profile.ps1))
     {
         Write-Host "Creating new profile file..."
@@ -80,11 +111,9 @@ function Install () {
         Write-Host "Profile file already exists."
     }
     
-    # 7. Restart PowerShell
     Write-Host "Please, restart your terminal."
 }
 
-# 6. Run the script
 try {
     Install
 } catch {
